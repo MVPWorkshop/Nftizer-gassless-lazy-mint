@@ -21,6 +21,7 @@
     "eslint-config-next": "12.3.1"
   },
   "resolutions": {
-    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
+    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz",
+    "avsc": "https://registry.npmjs.org/avsc/-/avsc-5.4.7.tgz"
   }
 }
