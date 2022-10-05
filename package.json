@@ -19,5 +19,8 @@
   "devDependencies": {
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1"
+  },
+  "resolutions": {
+    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
   }
 }
