@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
         },
       },
     }}
-    desiredChainId={ChainId.Mumbai}>
+    desiredChainId={ChainId.Polygon}>
       <Component {...pageProps} />
     </ThirdwebProvider>
   );
