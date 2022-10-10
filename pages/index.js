@@ -13,6 +13,7 @@ export default function Home() {
   const [, switchNetwork] = useNetwork();
   let tokenId = 0;
   const quantity = 1;
+  
   const items = [
   {
     metadata: {
@@ -26,23 +27,19 @@ export default function Home() {
     metadata: {
     id: 1,
     name: "Very cool Splet NFT v2",
-    image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-    desc: "Very cool Splet NFT v1 description with an in-depth analysis of the content of mentioned NFT. Fascinating. Quite fascinating. ",
+    image: "https://gateway.ipfscdn.io/ipfs/QmZ2Yz6hVsjyDFdmiZe7PkzQtzMV4cA4hXfxo8KCHAsid4/1.jpeg",
+    desc: "Lorem ipsum lorem ipsum",
     }
   },
   {
     metadata: {
     id: 2,
     name: "Very cool Splet NFT v3",
-    image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-    desc: "Very cool Splet NFT v1 description with an in-depth analysis of the content of mentioned NFT. Fascinating. Quite fascinating. ",
+    image: "https://gateway.ipfscdn.io/ipfs/QmXFPJZgumqx265WgxzeBEB391m8HdhsqJFcVXbBxV9Z3R/2.png",
+    desc: "Description Author Info",
     }
   },
 ];
-
-
-// let items = [];
-// const [items, setItems] = useState({});
 
 const claimNFT = async (id) => {
   switchNetwork(ChainId.Polygon);
@@ -55,24 +52,6 @@ const claimNFT = async (id) => {
   }
 };
 
-
-// async function getNFTs() {
-//   return await contract.getAll();
-//   };
-
-
-useEffect(() => {
-  const getNFTs = async () => {
-    try {
-      const nfts = await contract.getAll();
-      // console.log("nfts", nfts);
-    } catch(e) {
-      // console.log("error", e);
-    }
-  }
-
-  getNFTs();
-});
 
   return (
     <div className={styles.container}>
@@ -104,10 +83,7 @@ useEffect(() => {
               {isMismatched ? (
                 <div className={styles.error} onClick={() => switchNetwork(ChainId.Polygon)}> ❌ Disclaimer: <br/>You are not connected to the correct network <br/> Click here to switch to Polygon Mainnet Network</div>
               ) : (
-                <>
                 <div className={styles.correct}> ✅ Disclaimer:<br/>You are connected to the correct network <br/> Polygon Mainnet Network</div>
-
-                </>
               )}
               </>
             ) : (
@@ -119,7 +95,7 @@ useEffect(() => {
           </div>
 
           <div className={styles.description}>
-            <p>You can find your claimed NFTs on <a href='https://opensea.io/' target="_blank" rel="noopener noreferrer"> OpenSea </a></p>
+            <p>You can find your claimed NFTs on <a href='https://opensea.io/' target="_blank" rel="noopener noreferrer"> OpenSea </a><br/>Make sure to check Hidden section</p>
             or
             <p>You can <a href='https://allthings.how/how-to-add-nft-to-metamask/' target="_blank" rel="noopener noreferrer">import your NFTs via your Metamask app </a> to view them. <br/>(contract address: 0x54034Ea650C2cA0a5CF723af7f9BEd364c6d1c08)</p>
           </div>
@@ -132,7 +108,9 @@ useEffect(() => {
             items.map((item, index) => (
  
           <div className={styles.card} key={item.metadata.id}>
+            <div className={styles.header}>
             <img src={item.metadata.image} alt={item.metadata.name} className={styles.image} ></img>
+            </div>
             <div className={styles.content}>
             <h3>{item.metadata.name}</h3>
             <p>ID: {item.metadata.id}<br/>{item.metadata.desc}</p>
@@ -153,31 +131,6 @@ useEffect(() => {
               
             </>
            )}
-          
-
-          {/* <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a> */}
-
         </div> 
       </div>
 
