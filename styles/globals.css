@@ -1,3 +1,15 @@
+
+html {
+  min-height: 100%; /* Look, it's not fixed anymore! */
+
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex-grow: 1;
+}
+
 html,
 body {
   padding: 0;
@@ -24,3 +36,5 @@ a {
     background: black;
   }
 }
+
+

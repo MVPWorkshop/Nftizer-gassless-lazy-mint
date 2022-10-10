@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { useMetamask, useAddress, useContract } from "@thirdweb-dev/react";
+import { useMetamask, useNetwork, useNetworkMismatch, useAddress, useContract, ChainId } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from 'react';
 
 
@@ -9,7 +9,8 @@ export default function Home() {
   const connectWithMetamask = useMetamask();
   const address = useAddress();
   const contract = useContract("0x54034Ea650C2cA0a5CF723af7f9BEd364c6d1c08", "edition-drop").contract;
-
+  const isMismatched = useNetworkMismatch();
+  const [, switchNetwork] = useNetwork();
   let tokenId = 0;
   const quantity = 1;
   const items = [
@@ -44,8 +45,7 @@ export default function Home() {
 // const [items, setItems] = useState({});
 
 const claimNFT = async (id) => {
-  // const nft = await contract.get(tokenId);
-  // console.log(nft);
+  switchNetwork(ChainId.Polygon);
   try {
     await contract?.claimTo(address, id, quantity);
     console.log("🎉 NFT claimed successfully!");
@@ -65,9 +65,9 @@ useEffect(() => {
   const getNFTs = async () => {
     try {
       const nfts = await contract.getAll();
-      console.log("nfts", nfts);
+      // console.log("nfts", nfts);
     } catch(e) {
-      console.log("error", e);
+      // console.log("error", e);
     }
   }
 
@@ -83,16 +83,32 @@ useEffect(() => {
       </Head>
 
       <main className={styles.main}>
+
+        <span className={styles.logos}>
+            <a href="https://www.splet.rs/" target="_blank" rel="noopener noreferrer">
+            <img className={styles.splet} src="/splet22-logo.svg" alt="Splet 2022 logo"></img>
+            </a>
+            <a href="https://nftizer.net/" target="_blank" rel="noopener noreferrer">
+            <img className={styles.nftizer} src="/nftizer-logo-white.svg" alt="Nftizer logo"></img>
+            </a>
+          </span>
         <h1 className={styles.title}>
-          Claim your Splet 2022 NFTs for free! 
-          {/* Made by <a href="https://nftizer.net/">Nftizer</a> */}
+          Claim your Splet 2022 NFTs for free!
         </h1>
 
         <div className={styles.description}>
             {address ? ( 
               <>
-              <p>You are signed in as {address}</p>
-              {/* <div onClick={claimNFT}>Claim NFT</div> */}
+              <p>You are signed in as <br/><span> {address} </span></p>
+              <div className={styles.disclaimer}> ⚠️ Disclaimer: <br/>Transactions on the blockchain take time. <br/>Claiming your NFT can take around 20s.</div>
+              {isMismatched ? (
+                <div className={styles.error} onClick={() => switchNetwork(ChainId.Polygon)}> ❌ Disclaimer: <br/>You are not connected to the correct network <br/> Click here to switch to Polygon Mainnet Network</div>
+              ) : (
+                <>
+                <div className={styles.correct}> ✅ Disclaimer:<br/>You are connected to the correct network <br/> Polygon Mainnet Network</div>
+
+                </>
+              )}
               </>
             ) : (
               <>
@@ -100,6 +116,12 @@ useEffect(() => {
               <p><a href="https://metamask.io/">Don't have an account?</a></p>
               </>
             )}
+          </div>
+
+          <div className={styles.description}>
+            <p>You can find your claimed NFTs on <a href='https://opensea.io/' target="_blank" rel="noopener noreferrer"> OpenSea </a></p>
+            or
+            <p>You can <a href='https://allthings.how/how-to-add-nft-to-metamask/' target="_blank" rel="noopener noreferrer">import your NFTs via your Metamask app </a> to view them. <br/>(contract address: 0x54034Ea650C2cA0a5CF723af7f9BEd364c6d1c08)</p>
           </div>
 
         <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
@@ -113,7 +135,7 @@ useEffect(() => {
             <img src={item.metadata.image} alt={item.metadata.name} className={styles.image} ></img>
             <div className={styles.content}>
             <h3>{item.metadata.name}</h3>
-            <p>{item.metadata.desc}</p>
+            <p>ID: {item.metadata.id}<br/>{item.metadata.desc}</p>
             </div>
             {address ? (
               <div className={styles.button} onClick={ () => claimNFT(item.metadata.id)}>Claim NFT</div>
@@ -161,20 +183,7 @@ useEffect(() => {
 
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            {/* <Image src="/nftizer-logo-purple.svg" alt="Nftizer Logo" width={72} height={16} /> */}
-
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
+
