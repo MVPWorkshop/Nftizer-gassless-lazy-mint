@@ -53,7 +53,7 @@
   margin: 0.5rem;
 }
 .logos .nftizer {
-  height: 40px;
+  max-height: 70px;
   margin: 0.5rem;
 }
 
@@ -101,63 +101,103 @@
   color: #0070f3;
 }
 
-.disclaimer {
+.description .disclaimerClassic,
+.description .disclaimerError,
+.description .disclaimerCorrect {
+  box-sizing: none;
   margin: 0.5rem;
-  padding: 5px 15px;
+  padding: 10px;
+ 
+  background-color: none;
+  border-radius: 40px;
+  /* max-width: 382px; */
+  height: 80px;
+  width: 690px;
+
+  position: relative;
+
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.disclaimerClassic {
   border: 1px solid #eaeaea;
   color: #eaeaea;
-  background-color: none;
-  border-radius: 10px;
-  max-width: 382px;
 }
 
-.error {
+.disclaimerClassic span {
+  font-weight: 700;
+  color: #eaeaea;
+}
+
+.disclaimerClassic img,
+.disclaimerError img,
+.disclaimerCorrect img {
+position: absolute;
+left: 10px;
+}
+
+.disclaimerError {
+  border: 1px solid #F33B3B;
+  color: #F33B3B;
   cursor: pointer;
-  margin: 0.5rem;
+  /* margin: 0.5rem;
   padding: 5px 15px;
-  border: 1px solid #e90303;
-  color: #e90303;
+  border: 1px solid #F33B3B;
+  color: #F33B3B;
   background-color: none;
-  border-radius: 10px;
+  border-radius: 25px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 382px;
+  max-width: 382px; */
 
+  position: relative;
 }
 
-.error:hover {
+.disclaimerError span {
+  text-decoration: underline;
+  font-weight: 700;
+  color: #F33B3B;
+}
+
+/* .disclaimerError:hover {
   border: 1px solid #0070f3;
   color: #0070f3;
-}
+} */
 
-.correct {
-  margin: 0.5rem;
+
+.disclaimerCorrect {
+  border: 1px solid #0070f3;
+  color: #0070f3;
+  /* margin: 0.5rem;
   padding: 5px 15px;
   border: 1px solid #0070f3;
   color: #0070f3;
   background-color: none;
-  border-radius: 10px;
+  border-radius: 25px;
   max-width: 382px;
 
+  position: relative; */
 }
 
 .button {
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+
   padding: 15px 20px;
-  border: 1px solid #eaeaea;
+
+  border: 1px solid #FFF;
   color: #111;
-  background-color: #eaeaea;
-  border-radius: 10px;
+  background-color: #FFF;
+  border-radius: 20px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
-
 
   .button:hover,
   .button:active {
     color: #0070f3;
     border-color: #0070f3;
-
-   
   }
 
   .button:focus {
@@ -198,7 +238,7 @@
   text-align: left;  */
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
+  /* border: 1px solid #eaeaea; */
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
@@ -212,23 +252,47 @@
 }
 
 .card .content {
-  padding: 1rem;
+  padding: 10px;
   text-align: left;
   color: inherit;
   text-decoration: none;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  min-height: 300px;
+  min-height: 280px;
+}
+
+.card .content span {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 26px;
+
+  color: #AAAAAA;
+}
+
+.card .content h3 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 33px;
+
+  margin: 0.5rem 0;
 }
 
 .card .content p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+
+  color: #AAAAAA;
   margin-bottom: 1rem;
 }
 
 .card div.button {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 10px;
 }
+
+
 
 .card h2 {
   margin: 0 0 1rem 0;
@@ -248,6 +312,20 @@ footer .logo img {
   height: 20px;
 }
 
+@media (max-width: 800px) {
+  .description .disclaimerClassic,
+  .description .disclaimerError,
+  .description .disclaimerCorrect {
+  min-height: 80px;
+  height: 100%;
+  width: 100%;
+  text-align: start;
+  padding: 10px 40px 10px 80px;
+
+}
+
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
@@ -256,6 +334,25 @@ footer .logo img {
   .logos {
     display: flex;
     flex-direction: column;
+  }
+  .nftizer {
+    width: 300px;
+  }
+
+  .description .disclaimerClassic,
+  .description .disclaimerError,
+  .description .disclaimerCorrect {
+    padding: 10px 20px 10px 40px;
+  }
+
+  .disclaimerClassic img,
+  .disclaimerCorrect img,
+  .disclaimerError img {
+    height: 15px;
+    width: 15px;
+
+    top: 15px;
+    left: 20px;
   }
 }
 
