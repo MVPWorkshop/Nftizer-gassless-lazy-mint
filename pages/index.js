@@ -15,30 +15,54 @@ export default function Home() {
   const quantity = 1;
 
   const items = [
-  {
-    metadata: {
-    id: 0,
-    name: "NFT Name Placeholder",
-    image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-    desc: "Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum",
-    }
-  },
-  {
-    metadata: {
-    id: 1,
-    name: "NFT Name Placeholder",
-    image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-    desc: "Lorem ipsum lorem ipsum",
-    }
-  },
-  {
-    metadata: {
-    id: 2,
-    name: "NFT Name Placeholder",
-    image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-    desc: "Lorem ipsum lorem ipsum",
-    }
-  },
+    {
+      metadata: {
+      id: 3,
+      name: "Super",
+      image: "https://gateway.ipfscdn.io/ipfs/QmcJYX4LhWf6GxqwwCcUzQ94waSco8tFgwSL9nCqmQ1pfn/3.jpeg",
+      desc: "Jira specialist",
+      }
+    },
+    {
+      metadata: {
+      id: 4,
+      name: "Jugo",
+      image: "https://gateway.ipfscdn.io/ipfs/QmS3UwtBu2KdubucQ7Cb5s962DKzBL7MfYmSyVFVgyX2dP/4.jpeg",
+      desc: "But what if we make it non-fungible",
+      }
+    },
+    {
+      metadata: {
+      id: 5,
+      name: "Miki",
+      image: "https://gateway.ipfscdn.io/ipfs/QmNbHJiyH12gggvX1m5TXHFuF8fN9hZXUVL89F8287k12o/5.jpeg",
+      desc: "Ćuti, dobro je prošao",
+      }
+    },
+  // {
+  //   metadata: {
+  //   id: 0,
+  //   name: "NFT Name Placeholder",
+  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
+  //   desc: "Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum",
+  //   }
+  // },
+  // {
+  //   metadata: {
+  //   id: 1,
+  //   name: "NFT Name Placeholder",
+  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
+  //   desc: "Lorem ipsum lorem ipsum",
+  //   }
+  // },
+  // {
+  //   metadata: {
+  //   id: 2,
+  //   name: "NFT Name Placeholder",
+  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
+  //   desc: "Lorem ipsum lorem ipsum",
+  //   }
+  // },
 ];
 
 const claimNFT = async (id) => {
@@ -51,6 +75,19 @@ const claimNFT = async (id) => {
     console.log("💩 Error claiming NFT: ", err);
   }
 };
+
+// useEffect(() => {
+//   const getNFTs = async () => {
+//     try {
+//       const nfts = await contract.getAll();
+//       console.log("nfts", nfts);
+//     } catch(e) {
+//       // console.log("error", e);
+//     }
+//   }
+
+//   getNFTs();
+// });
 
 
   return (
