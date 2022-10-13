@@ -120,7 +120,7 @@ useEffect(() => {
           </div>
 
           <div className={styles.description}>
-            <p>Find your claimed NFTs on <a href='https://opensea.io/' target="_blank" rel="noopener noreferrer"> OpenSea </a><br/>Make sure to check Hidden section</p>
+            <p>Find your claimed NFTs on <a href='https://opensea.io/collection/splet-2022-nft-collection' target="_blank" rel="noopener noreferrer"> OpenSea </a><br/>Make sure to check your Hidden section</p>
             or
             <p><a href='https://allthings.how/how-to-add-nft-to-metamask/' target="_blank" rel="noopener noreferrer">Import your NFTs via your Metamask app </a><br/>(contract address: 0x52766E09e9cC4866e5CAC2BeeBeBC773EcD5839e)</p>
           </div>
