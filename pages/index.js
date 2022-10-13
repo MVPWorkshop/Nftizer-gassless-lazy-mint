@@ -8,61 +8,52 @@ import React, { useState, useEffect } from 'react';
 export default function Home() {
   const connectWithMetamask = useMetamask();
   const address = useAddress();
-  const contract = useContract("0x54034Ea650C2cA0a5CF723af7f9BEd364c6d1c08", "edition-drop").contract;
+  const contract = useContract("0x52766E09e9cC4866e5CAC2BeeBeBC773EcD5839e", "edition-drop").contract;
   const isMismatched = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
-  // let tokenId = 0;
   const quantity = 1;
 
   const items = [
     {
       metadata: {
+      id: 0,
+      name: "Splet 1",
+      image: "https://gateway.ipfscdn.io/ipfs/QmZDtzXcBDAtXWWdhiwPTeGCdeJUan6WjY5eLog9Hw7XHf/0.jpg",
+      desc: "Splet ideja, splet oblasti, splet prilika. Hvala vam što ste bili deo SPLET-a i što činite da naš inovacioni ekosistem raste iz dana u dan! Kao simbol zajedničke saradnje i budućih poduhvata, poklanjamo vam NFTeve kreriane od Zombijaninih crteža.",
+      }
+    },
+    {
+      metadata: {
+      id: 1,
+      name: "Splet 2",
+      image: "https://gateway.ipfscdn.io/ipfs/QmW2d9nPfPBVpLzFM1Z855iU1ew7FTvVuk2D2YTtrZqrcP/1.jpg",
+      desc: "Splet ideja, splet oblasti, splet prilika. Hvala vam što ste bili deo SPLET-a i što činite da naš inovacioni ekosistem raste iz dana u dan! Kao simbol zajedničke saradnje i budućih poduhvata, poklanjamo vam NFTeve kreriane od Zombijaninih crteža.",
+      }
+    },
+    {
+      metadata: {
+      id: 2,
+      name: "Splet 3",
+      image: "https://gateway.ipfscdn.io/ipfs/QmNb8BRqfdK7HPYxdv4ki93QAi6oW4m8CtqCb2mTSpG1e6/2.jpg",
+      desc: "Splet ideja, splet oblasti, splet prilika. Hvala vam što ste bili deo SPLET-a i što činite da naš inovacioni ekosistem raste iz dana u dan! Kao simbol zajedničke saradnje i budućih poduhvata, poklanjamo vam NFTeve kreriane od Zombijaninih crteža.",
+      }
+    },
+    {
+      metadata: {
       id: 3,
-      name: "Super",
-      image: "https://gateway.ipfscdn.io/ipfs/QmcJYX4LhWf6GxqwwCcUzQ94waSco8tFgwSL9nCqmQ1pfn/3.jpeg",
-      desc: "Jira specialist",
+      name: "Splet 4",
+      image: "https://gateway.ipfscdn.io/ipfs/QmdieCU7yUugGBu52i9CnZ4qzYSogBqyNmytgMwy9YNmV6/3.jpg",
+      desc: "Splet ideja, splet oblasti, splet prilika. Hvala vam što ste bili deo SPLET-a i što činite da naš inovacioni ekosistem raste iz dana u dan! Kao simbol zajedničke saradnje i budućih poduhvata, poklanjamo vam NFTeve kreriane od Zombijaninih crteža.",
       }
     },
     {
       metadata: {
       id: 4,
-      name: "Jugo",
-      image: "https://gateway.ipfscdn.io/ipfs/QmS3UwtBu2KdubucQ7Cb5s962DKzBL7MfYmSyVFVgyX2dP/4.jpeg",
-      desc: "But what if we make it non-fungible",
+      name: "Splet 5",
+      image: "https://gateway.ipfscdn.io/ipfs/Qmaim6gPFJhGyUQs7PbuafuL9scLRwKq3Jqaxtz8yu8MdU/4.jpg",
+      desc: "Splet ideja, splet oblasti, splet prilika. Hvala vam što ste bili deo SPLET-a i što činite da naš inovacioni ekosistem raste iz dana u dan! Kao simbol zajedničke saradnje i budućih poduhvata, poklanjamo vam NFTeve kreriane od Zombijaninih crteža.",
       }
     },
-    {
-      metadata: {
-      id: 5,
-      name: "Miki",
-      image: "https://gateway.ipfscdn.io/ipfs/QmNbHJiyH12gggvX1m5TXHFuF8fN9hZXUVL89F8287k12o/5.jpeg",
-      desc: "Ćuti, dobro je prošao",
-      }
-    },
-  // {
-  //   metadata: {
-  //   id: 0,
-  //   name: "NFT Name Placeholder",
-  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-  //   desc: "Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum",
-  //   }
-  // },
-  // {
-  //   metadata: {
-  //   id: 1,
-  //   name: "NFT Name Placeholder",
-  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-  //   desc: "Lorem ipsum lorem ipsum",
-  //   }
-  // },
-  // {
-  //   metadata: {
-  //   id: 2,
-  //   name: "NFT Name Placeholder",
-  //   image: "https://gateway.ipfscdn.io/ipfs/QmdzgyihfTR3XD95389e8AudHoukdJsA5gZzA7L8zk6zM8/0.png",
-  //   desc: "Lorem ipsum lorem ipsum",
-  //   }
-  // },
 ];
 
 const claimNFT = async (id) => {
@@ -76,18 +67,18 @@ const claimNFT = async (id) => {
   }
 };
 
-// useEffect(() => {
-//   const getNFTs = async () => {
-//     try {
-//       const nfts = await contract.getAll();
-//       console.log("nfts", nfts);
-//     } catch(e) {
-//       // console.log("error", e);
-//     }
-//   }
+useEffect(() => {
+  const getNFTs = async () => {
+    try {
+      const nfts = await contract.getAll();
+      console.log("nfts", nfts);
+    } catch(e) {
+      // console.log("error", e);
+    }
+  }
 
-//   getNFTs();
-// });
+  getNFTs();
+});
 
 
   return (
@@ -131,7 +122,7 @@ const claimNFT = async (id) => {
           <div className={styles.description}>
             <p>Find your claimed NFTs on <a href='https://opensea.io/' target="_blank" rel="noopener noreferrer"> OpenSea </a><br/>Make sure to check Hidden section</p>
             or
-            <p><a href='https://allthings.how/how-to-add-nft-to-metamask/' target="_blank" rel="noopener noreferrer">Import your NFTs via your Metamask app </a><br/>(contract address: 0x54034Ea650C2cA0a5CF723af7f9BEd364c6d1c08)</p>
+            <p><a href='https://allthings.how/how-to-add-nft-to-metamask/' target="_blank" rel="noopener noreferrer">Import your NFTs via your Metamask app </a><br/>(contract address: 0x52766E09e9cC4866e5CAC2BeeBeBC773EcD5839e)</p>
           </div>
 
         <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
